@@ -1,0 +1,107 @@
+/* frontend/src/components/NoteDetail.css */
+
+.note-detail-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  animation: fadeIn 0.5s ease;
+}
+
+/* --- HEADER & BACK BUTTON --- */
+.detail-header {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 20px;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--baby-blue);
+  font-weight: bold;
+  font-size: 1.1rem;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 10px 20px;
+  border-radius: 30px;
+  width: fit-content;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.2s;
+}
+
+.back-link:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateX(-5px);
+}
+
+.detail-header h1 {
+  font-size: 2.5rem;
+  color: white;
+  margin: 0;
+}
+
+/* --- THE 2-COLUMN GRID --- */
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Mobile default */
+  gap: 30px;
+}
+
+/* On Desktop: 2/3 Text, 1/3 Sidebar */
+@media (min-width: 900px) {
+  .detail-grid {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+/* --- CONTENT BOXES --- */
+.content-box {
+  background: rgba(255, 255, 255, 0.05); /* Glass */
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 30px;
+  margin-bottom: 30px;
+}
+
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.5rem;
+  color: var(--baby-blue);
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 10px;
+}
+
+.text-content {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  white-space: pre-line; /* Preserves line breaks */
+  font-family: 'Segoe UI', sans-serif; /* Readable font */
+}
+
+/* --- RIGHT SIDEBAR (Sticky) --- */
+.sidebar-sticky {
+  position: sticky;
+  top: 20px;
+}
+
+.quiz-prompt-box {
+  background: linear-gradient(135deg, rgba(0, 49, 83, 0.8), rgba(0, 123, 167, 0.2));
+  border: 2px solid var(--cerulean);
+  border-radius: 16px;
+  padding: 30px;
+  text-align: center;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

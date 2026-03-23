@@ -1,0 +1,126 @@
+/* 1. CUSTOM FONT DECLARATION */
+@font-face {
+    font-family: 'PixelPurl';
+    src: url('./fonts/PixelPurl.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Minare';
+    src: url('./fonts/Minaret.ttf') format('truetype');
+}
+
+/* 2. THEME VARIABLES */
+:root {
+    --prussian-blue: #003153;
+    --cerulean: #007BA7;
+    --air-force-blue: #588BAE;
+    --baby-blue: #89CFF0;
+    --white: #FFFFFF;
+    
+    /* The Magic Glass Effect */
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* 3. BASE STYLES */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background-color: var(--prussian-blue);
+    /* subtle gradient background */
+    background-image: linear-gradient(135deg, #003153 0%, #001f3f 100%);
+    color: var(--white);
+    font-family: 'PixelPurl', sans-serif; /* Readable body font */
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* Headings get the Pixel Font */
+h1, h2, h3, h4 {
+    font-family: 'Minare', sans-serif;
+    letter-spacing: 1px;
+    color: var(--baby-blue);
+}
+
+/* 4. REUSABLE GLASS COMPONENTS */
+
+/* The Container for Cards/Panels */
+.glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    box-shadow: var(--glass-shadow);
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Inputs (Textarea, Text fields) */
+.glass-input {
+    width: 100%;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--cerulean);
+    border-radius: 8px;
+    color: var(--white);
+    font-family: 'PixelPurl', sans-serif;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+.glass-input:focus {
+    outline: none;
+    border-color: var(--baby-blue);
+    background: rgba(0, 0, 0, 0.4);
+}
+.glass-input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* 5. BUTTONS (Themed) */
+button { cursor: pointer; font-family: 'Minare', sans-serif; }
+
+.btn-primary {
+    background: var(--cerulean);
+    color: var(--white);
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 123, 167, 0.3);
+}
+.btn-primary:hover {
+    background: var(--air-force-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 123, 167, 0.5);
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 1px solid var(--baby-blue);
+    color: var(--baby-blue);
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+.btn-secondary:hover {
+    background: rgba(137, 207, 240, 0.1);
+}
+
+.btn-danger {
+    background: rgba(220, 38, 38, 0.2);
+    border: 1px solid #ef4444;
+    color: #fca5a5;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+.btn-danger:hover {
+    background: rgba(220, 38, 38, 0.4);
+}
+
+/* 6. UTILITIES */
+.perspective-1000 { perspective: 1000px; }
+.transform-style-3d { transform-style: preserve-3d; }
+.backface-hidden { backface-visibility: hidden; }
+.rotate-y-180 { transform: rotateY(180deg); }

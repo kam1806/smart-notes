@@ -1,0 +1,66 @@
+
+version: '3.8'
+
+services:
+  # ------------------------------------
+  # 1. POSTGRESQL DATABASE SERVICE (db)
+  # ------------------------------------
+  db:
+    image: postgres:15-alpine
+    container_name: notes_db
+    restart: always
+    env_file: .env
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U smartuser -d smartnotes_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # ------------------------------------
+  # 2. FASTAPI BACKEND SERVICE (backend)
+  # ------------------------------------
+  backend:
+    build:
+      context: ./backend # Uses backend/Dockerfile
+    container_name: notes_backend
+    env_file: .env
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app # Live reload on code changes
+    depends_on:
+      db:
+        condition: service_healthy # Wait for DB
+    # Install the Gemini SDK
+    # We already installed packages in the Dockerfile. Just run the app.
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+  # ------------------------------------
+  # 3. REACT FRONTEND SERVICE (frontend)
+  # ------------------------------------
+  frontend:
+    build:
+      context: ./frontend # Uses frontend/Dockerfile
+    container_name: notes_frontend
+    environment:
+      # CRITICAL: Forces React to listen on all interfaces
+      - HOST=0.0.0.0 
+      # CRITICAL: Prevents React from crashing due to pre-flight checks inside Docker
+      - SKIP_PREFLIGHT_CHECK=true 
+      - VITE_API_URL=${VITE_API_URL}
+      - BROWSER=none
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules  # <-- Prevents overwriting node_modules
+     # Important for Windows performance
+    # Assumes you use npm start
+    
+
+# Define the volume for persistent DB storage
+volumes:
+  postgres_data:

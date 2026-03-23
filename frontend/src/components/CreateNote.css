@@ -1,0 +1,113 @@
+/* The Main Wrapper - Centers everything on the Prussian Blue screen */
+.create-note-container {
+    background-color: #003153 !important;
+    min-height: 100vh;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column; /* Stacks children vertically */
+    align-items: center;    /* Centers children horizontally */
+    justify-content: center; /* Centers children vertically */
+    box-sizing: border-box;
+}
+
+/* The Glass Box (Input & Preview Sections) */
+.input-section, .preview-section {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 40px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 700px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.input-section h2, .preview-section h2 {
+    color: #2ecc71 !important;
+    margin-bottom: 25px;
+    text-align: center;
+    font-family: 'PixelPurl', sans-serif;
+    font-size: 2rem;
+}
+
+/* The Text Inputs */
+.title-input, .note-textarea {
+    box-sizing: border-box;
+    width: 100% !important;
+    background: rgba(0, 0, 0, 0.3) !important;
+    border: 1px solid #005fa3 !important;
+    color: white !important;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    outline: none;
+}
+
+.title-input:focus, .note-textarea:focus {
+    border-color: #2ecc71 !important;
+}
+
+.note-textarea {
+    height: 350px !important;
+    resize: none;
+}
+
+/* Buttons */
+.gen-btn, .save-btn, .discard-btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, filter 0.2s;
+}
+
+.gen-btn {
+    background-color: #2ecc71 !important;
+    color: white;
+}
+
+.save-btn {
+    background-color: #2ecc71 !important;
+    color: white;
+    flex: 2;
+}
+
+.discard-btn {
+    background-color: #e74c3c !important;
+    color: white;
+    flex: 1;
+}
+
+.button-group {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.gen-btn:hover, .save-btn:hover, .discard-btn:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+}
+
+/* Preview Content Styling */
+.summary-content {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border-left: 4px solid #2ecc71;
+}
+
+.summary-content h3 {
+    margin-top: 0;
+    color: #2ecc71;
+    font-size: 1.1rem;
+}

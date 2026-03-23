@@ -1,0 +1,79 @@
+/* frontend/src/components/QuizPage.css */
+
+.quiz-page-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.quiz-actions-panel {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 40px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.quiz-actions-title {
+    font-size: 1.8rem;
+    color: var(--baby-blue);
+    margin-bottom: 30px;
+}
+
+/* --- THE BUTTONS FIX --- */
+.action-buttons-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Wraps on mobile */
+}
+
+.quiz-btn {
+    padding: 18px 28px; /* BIG PADDING */
+    border-radius: 12px;
+    font-size: 1.1rem; /* BIGGER TEXT */
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'PixelPurl', cursive; /* Keep your font */
+    letter-spacing: 1px;
+}
+
+/* 1. Main Save Button (Green) */
+.quiz-btn.primary {
+    background-color: #2ecc71;
+    color: white;
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+}
+.quiz-btn.primary:hover {
+    transform: translateY(-3px);
+    background-color: #27ae60;
+}
+
+/* 2. Secondary Save (Blue) */
+.quiz-btn.secondary {
+    background-color: transparent;
+    border: 2px solid #3498db;
+    color: #3498db;
+}
+.quiz-btn.secondary:hover {
+    background-color: rgba(52, 152, 219, 0.1);
+    color: white;
+    border-color: white;
+}
+
+/* 3. Discard (Red/Gray) */
+.quiz-btn.danger {
+    background-color: rgba(231, 76, 60, 0.1);
+    border: 1px solid #e74c3c;
+    color: #e74c3c;
+}
+.quiz-btn.danger:hover {
+    background-color: #e74c3c;
+    color: white;
+}

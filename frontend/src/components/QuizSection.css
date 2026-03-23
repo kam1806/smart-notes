@@ -1,0 +1,157 @@
+/* src/components/QuizSection.css */
+
+.quiz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 10px;
+}
+
+/* --- FLASHCARD 3D STYLES --- */
+.flashcard-container {
+  height: 280px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.flashcard-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.flashcard-container.flipped .flashcard-inner {
+  transform: rotateY(180deg);
+}
+
+/* Common Front/Back Style - GLASSMORPHISM */
+.flashcard-front, .flashcard-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  border-radius: 16px;
+  
+  /* Glass Effect to match your Input Section */
+  background: rgba(255, 255, 255, 0.1); 
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  color: white;
+}
+
+/* FRONT SPECIFIC */
+.flashcard-front {
+  /* Using your Green (#2ecc71) for consistency */
+  border-top: 4px solid #2ecc71; 
+}
+
+.flashcard-front h4 {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 600;
+  font-family: sans-serif;
+  line-height: 1.5;
+}
+
+.tap-hint {
+  margin-top: 20px;
+  font-size: 0.85rem;
+  color: #2ecc71; /* Green text */
+  font-family: 'PixelPurl', sans-serif; /* Keep your pixel font if available */
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* BACK SPECIFIC */
+.flashcard-back {
+  /* Darker background for readability */
+  background: #003153; 
+  border: 1px solid #2ecc71;
+  transform: rotateY(180deg);
+}
+
+.flashcard-back p {
+  color: #2ecc71;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* --- MCQ STYLES --- */
+.mcq-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+.mcq-question {
+  font-size: 1.3rem;
+  color: white;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.mcq-option-btn {
+  width: 100%;
+  text-align: left;
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  
+  /* Default State */
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid transparent;
+  color: rgba(255, 255, 255, 0.9);
+  transition: all 0.2s;
+}
+
+.mcq-option-btn:hover:not(:disabled) {
+  background: rgba(46, 204, 113, 0.2); /* Green tint on hover */
+  border-color: #2ecc71;
+  color: white;
+}
+
+/* Correct Answer (Green) */
+.mcq-option-btn.correct {
+  background: rgba(46, 204, 113, 0.3);
+  border-color: #2ecc71;
+  color: #a3e635;
+  font-weight: bold;
+}
+
+/* Wrong Answer (Red) */
+.mcq-option-btn.wrong {
+  background: rgba(231, 76, 60, 0.3);
+  border-color: #e74c3c;
+  color: #ffcccc;
+}
+
+.mcq-option-btn.dimmed {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Feedback Message */
+.feedback-msg {
+  text-align: center;
+  padding: 10px;
+  margin-top: 15px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+.feedback-msg.success { background: rgba(46, 204, 113, 0.2); color: #2ecc71; }
+.feedback-msg.error { background: rgba(231, 76, 60, 0.2); color: #e74c3c; }

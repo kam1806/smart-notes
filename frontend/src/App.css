@@ -1,0 +1,185 @@
+/* Basic Reset */
+@font-face {
+  font-family: 'PixelPurl'; /* New unique name for your custom font */
+  /* CRITICAL: Path is relative to the CSS file and uses the correct filename */
+  src: url('./fonts/PixelPurl.ttf') format('truetype');
+  font-weight: normal; /* Adjust based on the font's style */
+  font-style: normal;
+}
+
+@font-face {
+    font-family: 'Minare';
+    src: url('./fonts/Minaret.ttf') format('truetype');
+}
+
+:root {
+  /* Base Palette */
+  --color-prussian-blue: #0a1128;
+  --color-deep-navy: #001f54;
+  --color-yale-blue: #034078;
+  --color-cerulean: #1282a2;
+  --color-white: #fefcfb;
+
+  /* Semantic Usage */
+  --color-background-main: var(--color-prussian-blue);
+  --color-primary-button: var(--color-deep-navy);
+  --color-accent: var(--color-cerulean);
+  --color-text-light: var(--color-white);
+  --color-card-background: var(--color-white);
+}
+
+body {
+  background-color: #003153;
+  color: var(--color-text-light); /* Sets all text to white */
+  margin: 0;
+  font-family: 'PixelPurl', sans-serif; /* Recommended clean font */
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Minare', sans-serif; /* Apply custom font to headings */
+  color: var(--color-text-light);
+}
+
+.App {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Input Section */
+.input-section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+}
+
+textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+    resize: vertical;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    font-family: 'Minare', sans-serif;
+}
+
+button:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+
+button:disabled {
+    background-color: #99c9ff;
+    cursor: not-allowed;
+}
+
+/* Results Section */
+.results-section h2 {
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+.result-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+.result-card h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.quiz-section {
+    margin-top: 30px;
+}
+
+.quiz-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.quiz-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #007bff;
+    position: relative;
+}
+
+.quiz-item.flashcard {
+    border-left: 5px solid #28a745;
+}
+
+.quiz-type {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #888;
+}
+
+.quiz-item p {
+    margin: 5px 0;
+}
+
+.options p {
+    padding: 5px 0;
+    margin-left: 10px;
+    border-bottom: 1px dotted #eee;
+}
+
+.option.correct {
+    background-color: #e6ffe9;
+    font-weight: bold;
+    color: #28a745;
+}
+
+.answer-text {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    border: 1px dashed #ccc;
+}
+
+.error-message {
+    color: #dc3545;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 15px;
+    text-align: center;
+}

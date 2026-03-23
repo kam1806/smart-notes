@@ -1,0 +1,175 @@
+/* --- PAGE LAYOUT --- */
+.home-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===========================
+   MODE 1: DASHBOARD STYLES
+   =========================== */
+.dashboard-wrapper {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.welcome-text h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: white;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.welcome-text p {
+  color: rgba(255,255,255,0.8);
+  font-size: 1.2rem;
+  margin-bottom: 50px;
+}
+
+.action-cards-container {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* THE BIG BUTTONS (Action Cards) */
+.action-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 40px;
+  border-radius: 24px;
+  width: 300px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.action-card:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.action-card .icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+.action-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.action-card p {
+  color: rgba(255,255,255,0.6);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #2ecc71;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+/* ===========================
+   MODE 2: LIBRARY GRID STYLES
+   =========================== */
+.library-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 20px;
+}
+
+.back-btn {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.3);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.back-btn:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: white;
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+/* Reuse the Card Styles from before */
+.note-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s;
+  height: 220px;
+  display: flex;
+  flex-direction: column;
+}
+
+.note-card:hover {
+  transform: translateY(-5px);
+  border-color: #89CFF0;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.card-top-strip {
+  height: 6px;
+  background: linear-gradient(90deg, #007BA7, #89CFF0);
+}
+
+.card-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.note-card h3 { color: white; margin-bottom: 10px; }
+.preview-text { color: rgba(255,255,255,0.6); font-size: 0.9rem; flex-grow: 1; overflow: hidden; }
+.card-footer { margin-top: auto; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px; text-align: right; }
+.open-btn { color: #89CFF0; font-weight: bold; font-size: 0.85rem; }
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+  from { opacity: 0; } to { opacity: 1; }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
