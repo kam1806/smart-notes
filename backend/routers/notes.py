@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session, joinedload
 from typing import List
 import models, schemas
-from database import get_db
+from services.database import get_db
 import oauth2
 from services.groq import generate_summary_and_bullets, generate_quizzes_and_flashcards
 
