@@ -9,12 +9,14 @@ const Home = () => {
   const [viewMode, setViewMode] = useState('dashboard'); // 'dashboard' or 'library'
   const navigate = useNavigate();
 
+  const API_URL = process.env.REACT_APP_API_URL;
+
   // Fetch notes on load (so they are ready when you click the button)
   useEffect(() => {
     const fetchNotes = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await axios.get('http://localhost:8000/notes', { 
+        const res = await axios.get(`${API_URL}/notes`, { 
           headers: { Authorization: `Bearer ${token}` }
         });
         setNotes(res.data);

@@ -7,6 +7,8 @@ import './QuizPage.css'; // <--- Connects the new CSS styles
 const QuizPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
+
+  const API_URL = process.env.REACT_APP_API_URL;
   
   // 1. Get ALL data passed from CreateNote
   const { title, originalText, summary, bullet_points, quizzes } = location.state || {};
@@ -27,7 +29,7 @@ const QuizPage = () => {
   const handleSaveFullKit = async () => {
     try {
         const token = localStorage.getItem('token');
-        await axios.post('http://localhost:8000/notes/save', 
+        await axios.post(`${API_URL}/notes/save`, 
             {
                 title: title,
                 original_text: originalText,
@@ -49,7 +51,7 @@ const QuizPage = () => {
   const handleSaveSummaryOnly = async () => {
     try {
         const token = localStorage.getItem('token');
-        await axios.post('http://localhost:8000/notes/save', 
+        await axios.post(`${API_URL}/notes/save`, 
             {
                 title: title,
                 original_text: originalText,

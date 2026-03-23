@@ -8,11 +8,13 @@ const Login = () => {
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
+    const API_URL = process.env.REACT_APP_API_URL;
+
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
             // UPDATED URL: Changed from /token to /login
-            const response = await axios.post('http://localhost:8000/login', 
+            const response = await axios.post(`${API_URL}/login`, 
                 new URLSearchParams({
                     'username': username,
                     'password': password

@@ -10,11 +10,12 @@ const NoteDetail = () => {
   const [note, setNote] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  const API_URL = process.env.REACT_APP_API_URL;
   useEffect(() => {
     const fetchNote = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await axios.get(`http://localhost:8000/notes/${id}`, {
+        const res = await axios.get(`${API_URL}/notes/${id}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         console.log("NOTE DATA:", res.data); // <--- Check console to see real data name

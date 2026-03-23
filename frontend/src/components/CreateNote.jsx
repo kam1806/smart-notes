@@ -9,12 +9,14 @@ const CreateNote = () => {
     const [result, setResult] = useState(null); 
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+
+    const API_URL = process.env.REACT_APP_API_URL;
     // 1. Generate Content (Same as before)
     const handleGenerate = async () => {
         if (!title || !originalText) return;
         setLoading(true);
         try {
-            const response = await axios.post('http://localhost:8000/notes/generate', {
+            const response = await axios.post(`${API_URL}/notes/generate`, {
                 title: title,
                 text: originalText
             });
@@ -29,7 +31,7 @@ const CreateNote = () => {
     const handleSaveSummaryOnly = async () => {
         try {
             const token = localStorage.getItem('token');
-            await axios.post('http://localhost:8000/notes/save', 
+            await axios.post(`${API_URL}/notes/save`, 
                 {
                     title: title,
                     original_text: originalText,
