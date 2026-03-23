@@ -1,6 +1,6 @@
 # backend/models/user.py
 from sqlalchemy import Column, Integer, String
-from database import Base 
+from backend.services.database import Base 
 from sqlalchemy.orm import relationship
  # Assuming database.py is one level up
 
