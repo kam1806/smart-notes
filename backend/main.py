@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from routers import auth, notes
 import models
-from database import engine
+from services.database import engine
 # Ensure you import your new notes router
 
 # Create the database tables

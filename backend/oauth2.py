@@ -2,7 +2,7 @@ from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 from jose import JWTError, jwt
 from sqlalchemy.orm import Session
-import database, models
+import services.database as database, models
 import security  # <--- Import your config from here
 
 # Define the scheme (points to your login endpoint)
